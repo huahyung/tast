@@ -1,19 +1,20 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication,QHBoxLayout, QWidget, QVBoxLayout, QPushButton, QLabel
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel
 
-from instr import *  
+from instr import *  #загружаем переменные из файла instr.py
 from second_win import *
 class MainWin(QWidget):
     def __init__(self):
         super().__init__()
-        self.set_appear() 
-        self.initUI() 
-        self.connects() 
-        self.show()  
+        self.set_appear() # устанавливает, как будет выглядеть окно
+        self.initUI() # создаём и настраиваем графические элементы
+        self.connects() # устанавливает связи между элементами
+        self.show()  # показываем окно
     def set_appear(self):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
+        self.setStyleSheet("background-color: rgb(255, 0, 0);")
     def initUI(self):
         self.hello_text = QLabel(txt_hello)
         self.instruction = QLabel(txt_instruction)
